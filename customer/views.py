@@ -51,8 +51,6 @@ class CreateCustomerViewSet(generics.ListCreateAPIView):
         response_data.is_valid()
         response_data = response_data.data
 
-        count = response_data.count
-
         print(response_data)
         # Return the response
         return Response(dto_data, status=status.HTTP_201_CREATED)
@@ -60,8 +58,11 @@ class CreateCustomerViewSet(generics.ListCreateAPIView):
 
 class UpdateAndDeleteCustomerView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
+    pagination_class = LargeResultsPagination
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
             return UserFullSerializer
         return UserSerializerWithoutOrderNumber
+
+
