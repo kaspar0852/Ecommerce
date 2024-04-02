@@ -23,5 +23,7 @@ class User(models.Model):
 
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f"Name: {self.Name}, Age: {self.Age}, Address: {self.Address}, Phone: {self.Phone}, IsActive: {self.IsActive}, OrderNumber: {self.OrderNumber}"
+    def __str__(self) -> str:
+        return self.Name
+
+        #return f"Name: {self.Name}, Age: {self.Age}, Address: {self.Address}, Phone: {self.Phone}, IsActive: {self.IsActive}, OrderNumber: {self.OrderNumber}"
