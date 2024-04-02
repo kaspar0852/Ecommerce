@@ -1,0 +1,58 @@
+[
+    {
+        "model": "product.ProductType",
+        "pk": 1,
+        "fields": {
+            "Name": "Laptop",
+            "Description": "Laptop"
+        }
+    },
+    {
+        "model": "product.ProductType",
+        "pk": 2,
+        "fields": {
+            "Name": "Mobile",
+            "Description": "Mobile"
+        }
+    },
+  {
+        "model": "product.ProductType",
+        "pk": 3,
+        "fields": {
+            "Name": "Headphones",
+            "Description": "Wireless Headphones"
+        }
+    },
+    {
+        "model": "product.ProductType",
+        "pk": 4,
+        "fields": {
+            "Name": "Smartwatch",
+            "Description": "Fitness Tracker"
+        }
+    },
+    {
+        "model": "product.ProductType",
+        "pk": 5,
+        "fields": {
+            "Name": "Camera",
+            "Description": "Digital Camera"
+        }
+    },
+    {
+        "model": "product.ProductType",
+        "pk": 6,
+        "fields": {
+            "Name": "Television",
+            "Description": "Smart TV"
+        }
+    },
+    {
+        "model": "product.ProductType",
+        "pk": 7,
+        "fields": {
+            "Name": "Gaming Console",
+            "Description": "Video Game Console"
+        }
+    }
+]
