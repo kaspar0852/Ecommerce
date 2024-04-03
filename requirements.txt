@@ -1,3 +1,4 @@
 setuptools
 django-rest-swagger
 drf-yasg
+pillow
