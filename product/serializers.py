@@ -12,6 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ['id', 'Name', 'Description', 'Expiration_Date', 'UserId', 'user_name', 'ProductTypeId',
                   'product_type_name', 'image']
+        ref_name = 'ProductProduct'
 
     def create(self, validated_data):
         image_data = validated_data.pop('image')  # Extract image data
@@ -47,16 +48,19 @@ class ProductSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['Name','Age','Address']
+        fields = ['Name', 'Age', 'Address']
+        ref_name = 'ProductUser'
 
 
 class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductType
         fields = '__all__'
+        ref_name = 'ProductProductType'
 
 
 class ProductImageSerializer(serializers.ModelSerializer):

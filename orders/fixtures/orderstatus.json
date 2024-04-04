@@ -1,0 +1,26 @@
+[
+    {
+        "model": "orders.OrderStatus",
+        "pk": 1,
+        "fields": {
+            "SystemName": "Pending",
+            "DisplayName": "Pending"
+        }
+    },
+    {
+        "model": "orders.OrderStatus",
+        "pk": 2,
+        "fields": {
+            "SystemName": "Canceled",
+            "DisplayName": "Canceled"
+        }
+    },
+    {
+        "model": "orders.OrderStatus",
+        "pk": 3,
+        "fields": {
+            "SystemName": "Confirmed",
+            "DisplayName": "Confirmed"
+        }
+    }
+]

@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django_filters',
     'drf_yasg',
     'customer',
-    'product'
+    'product',
+    'orders',
+    'wishlist'
 ]
 
 MIDDLEWARE = [
