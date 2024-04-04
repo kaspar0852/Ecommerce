@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Product, ProductImage, ProductType
+from .models import Product, ProductImage, ProductType, ProductReview
+from customer.models import User
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -46,6 +47,11 @@ class ProductSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['Name','Age','Address']
+
 
 class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -74,4 +80,25 @@ class ProductCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'UserId', 'ProductTypeId','image']
+        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'UserId', 'ProductTypeId', 'image']
+
+
+class ProductReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductReview
+        fields = '__all__'
+
+
+class ProductNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['Name']
+
+
+class GetProductReviewSerializer(serializers.ModelSerializer):
+    product = ProductNameSerializer(source='ProductId', read_only=True)
+    user = UserSerializer(source='UserId', read_only=True)
+
+    class Meta:
+        model = ProductReview
+        fields = ['id', 'ProductId', 'UserId', 'Rating', 'Review_Text', 'Review_Date', 'product', 'user']
