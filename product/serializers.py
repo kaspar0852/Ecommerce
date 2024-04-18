@@ -5,12 +5,11 @@ from customer.models import User
 
 class ProductSerializer(serializers.ModelSerializer):
     image = serializers.ImageField()
-    user_name = serializers.CharField(source='UserId.Name', read_only=True)
     product_type_name = serializers.CharField(source='ProductTypeId.Name', read_only=True)
 
     class Meta:
         model = Product
-        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'UserId', 'user_name', 'ProductTypeId',
+        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'ProductTypeId','Price',
                   'product_type_name', 'image']
         ref_name = 'ProductProduct'
 
@@ -31,8 +30,8 @@ class ProductSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.Name = validated_data.get('Name', instance.Name)
         instance.Description = validated_data.get('Description', instance.Description)
-        instance.UserId = validated_data.get('UserId', instance.UserId)
         instance.ProductTypeId = validated_data.get('ProductTypeId', instance.ProductTypeId)
+        instance.Price = validated_data.get('Price', instance.Price)
 
         image_data = validated_data.get('image')
         if image_data:
@@ -76,7 +75,7 @@ class GetProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'UserId', 'Product_Type', 'Product_Image']
+        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'Product_Type','Price','Product_Image']
 
 
 class ProductCreateSerializer(serializers.ModelSerializer):
@@ -84,7 +83,7 @@ class ProductCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'UserId', 'ProductTypeId', 'image']
+        fields = ['id', 'Name', 'Description', 'Expiration_Date', 'ProductTypeId','Price', 'image']
 
 
 class ProductReviewSerializer(serializers.ModelSerializer):

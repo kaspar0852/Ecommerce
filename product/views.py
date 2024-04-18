@@ -64,7 +64,7 @@ class ProductListView(generics.ListAPIView):
 
 class ProductUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    serializer_class = GetProductSerializer
 
     def get_object(self):
         pk = self.kwargs.get('pk')

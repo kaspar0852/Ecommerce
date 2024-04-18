@@ -17,10 +17,10 @@ class ProductType(models.Model):
 
 class Product(models.Model):
     Name = models.CharField(max_length=250)
-    Description = models.TextField(max_length=250)
+    Description = models.TextField(max_length=5000)
     Expiration_Date = models.DateField()
-    UserId = models.ForeignKey(User, on_delete=models.CASCADE)
     ProductTypeId = models.ForeignKey(ProductType, on_delete=models.CASCADE)
+    Price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
 
     def __str__(self):
         return self.Name
