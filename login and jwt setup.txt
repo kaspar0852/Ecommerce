@@ -1,0 +1,5 @@
+#Django user login and jwt setup
+
+https://medium.com/django-rest/django-rest-framework-jwt-authentication-94bee36f2af8
+
+https://medium.com/django-rest/django-rest-framework-login-and-register-user-fd91cf6029d5
